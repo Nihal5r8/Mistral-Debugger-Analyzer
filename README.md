@@ -72,6 +72,46 @@ This allows the Python backend to:
 
 ## 🚀 Getting Started
 
+📂 Project Structure
+.
+├── outputs/                  # Generated analysis outputs & visualizations
+│
+├── utils/                    # Core analysis utilities
+│   ├── llm.py                # Local LLM inference wrapper (Mistral model interface)
+│   ├── parser.py             # Code parsing & AST-based logic extraction
+│   └── visualizer.py         # Mermaid.js diagram generation & formatting
+│
+├── app.py                    # Streamlit UI logic (user interaction layer)
+├── app.temp.py               # Experimental / sandbox version of the app
+├── main.py                   # Application entry point
+│
+├── Model.py                  # Model configuration & inference orchestration
+├── model_loader.py           # Loads quantized Mistral weights into memory
+│
+├── requirements.txt          # Python dependencies
+├── .gitignore                # Git ignore rules
+└── README.md                 # Project documentation
+
+🧭 Architectural Overview
+
+main.py
+Acts as the single entry point, initializing the UI and wiring together the model, parser, and visualizer.
+
+utils/
+Contains the core intelligence of the system:
+
+parser.py understands code structure and control flow
+
+llm.py handles structured LLM prompting and response parsing
+
+visualizer.py converts logic metadata into Mermaid diagrams
+
+Model.py & model_loader.py
+Responsible for local inference, quantization handling, and efficient model loading.
+
+outputs/
+Stores generated diagrams, intermediate metadata, and analysis artifacts for debugging or inspection.
+
 ### 1️⃣ Model Weights
 
 Due to GitHub file size limits, model weights are not included.
